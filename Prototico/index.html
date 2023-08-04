@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="caminho/para/o/arquivo/feather-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/ec837fedaa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- HEADER - MENU -->
+    <header>
+
+        <nav class="navbar navbar-expand-lg fixed-top " id="navContainer">
+            <div>
+                <a href="#" class="navbar-brand">
+                    <img class="logo" src="/IMGS/logo.png" alt="VSL Viagens">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="collapse navbar-collapse menu" id="navbarNav">
+                <ul class="navbar-nav container-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinos.html">DESTINOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">CONTATO</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">LOGIN AQUI</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+
+
+
+        </nav>
+    </header>
+    <!-- MAIN -->
+    <main>
+        <!-- img fixa - falta colocar a parte da descrição -->
+
+        <section class="carrosel-sessao">
+            <!-- <img src="IMGS/Imagens Locais/Internacional/San Francisco, CA, United States.png" class="img-fluid"
+                alt="..."> -->
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="IMGS\Imagens Locais\Internacional\San Francisco, CA, United States.png"
+                            class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>SÃO FRANCISCO</h3>
+                            <p>Explore a cultura vibrante e os marcos icônicos de São Francisco, Califórnia, EUA, onde a
+                                Golden Gate Bridge e bairros diversos aguardam sua exploração.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="IMGS\Imagens Locais\Internacional\Seoul, Seoul, South Korea.png" class="d-block w-100"
+                            alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>COREIA DO SUL</h3>
+                            <p>Encante-se com a modernidade e a rica história de Seul, Coreia do Sul, onde tecnologia de
+                                ponta e tradições milenares se unem para proporcionar uma experiência única.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="IMGS\Imagens Locais\Internacional\Tateyama, Toyama, Japan.png" class="d-block w-100"
+                            alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>JAPÃO</h3>
+                            <p> Descubra a beleza natural e serenidade em Tateyama, Toyama, Japão, um refúgio pitoresco
+                                entre majestosas montanhas, deslumbrantes paisagens e encantadoras tradições.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+
+
+        </section>
+        <!-- sobre - as descrições -->
+        <section class="descricao-sessao">
+            <div class="container-sobre">
+                <h2>AS MELHORES OFERTAS DE VIAGEM</h2>
+            </div>
+
+            <div class="inputs-container">
+                <div class="input-group primeiro">
+                    <span class="input-group-text">Origem</span>
+                    <input type="text" aria-label="First name" class="form-control">
+                    <span class="input-group-text">Destino</span>
+                    <input type="text" aria-label="Last name" class="form-control">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Data de Viagem</span>
+                    <input type="date" aria-label="Data de Viagem" class="form-control">
+                </div>
+                <!-- <div class="input-group">
+
+                    <div class="input-group">
+                        <span class="input-group-text">Quantidade</span>
+
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>1 passageiro</option>
+                            <option value="1">2 passageiros</option>
+                            <option value="2">3 passageiros</option>
+                            <option value="3">4 passageiros</option>
+                        </select>
+
+
+
+                    </div>
+
+                </div> -->
+                <button class="botao-estilo">Buscar</button>
+
+            </div>
+
+            <div class="container-sobre">
+                <h3>VOE SEM LIMITES</h3>
+                <h4>Descubra o mundo conosco! Oferecemos experiências inesquecíveis e roteiros personalizados para
+                    tornar cada viagem única e especial.</h3>
+
+            </div>
+
+            <section class="container-especialidades">
+                <div class="item-especialidade">
+                    <i class="fa-solid fa-dollar-sign fa-beat"></i>
+                    <h5>
+                        Melhores preços compatíveis ao mercado.
+                    </h5>
+                </div>
+                <div class="item-especialidade">
+                    <i class="fa-solid fa-bed fa-beat"></i>
+                    <h5>
+                        Estadias impecáveis nos melhores hotéis.
+                    </h5>
+                </div>
+                <div class="item-especialidade">
+                    <i class="fa-solid fa-plane fa-beat"></i>
+                    <h5>
+                        Viaje com agilidade, confiança e rapidez.
+                    </h5>
+                </div>
+
+
+            </section>
+
+
+
+
+        </section>
+
+
+        <!-- PREVIA SESSSOES DESTINOS -->
+        <section class="previa-containers-sessao">
+            <h3> PROMOÇÕES </h3>
+            <div class="container-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="IMGS/Imagens Locais/Nacional/Salvador.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="IMGS/Imagens Locais/Nacional/Salvador.jpg" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="IMGS/Imagens Locais/Nacional/Salvador.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+
+
+    </main>
+    <footer>
+        <h6> Desenvolvido por <strong>
+                Maria Eduarda Dourado
+            </strong> </h6>
+
+
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

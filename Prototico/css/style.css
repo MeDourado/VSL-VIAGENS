@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #232323;
+    color: white;
+    overflow-x: hidden;
+
+}
+
+/* Menu - Header */
+.container-menu {
+    justify-content: space-around;
+}
+
+.logo {
+    width: 130px;
+}
+
+.navbar-toggler,
+.logo {
+    margin: 10px 30px 5px 30px;
+}
+
+.navbar {
+    background-color: #232323;
+
+}
+
+.navbar-nav {
+    margin-right: 30px;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 1rem;
+    padding-left: 30px;
+
+}
+
+.nav-link {
+    color: white;
+
+}
+
+.nav-link:hover {
+    color: yellow;
+}
+
+.navbar-toggler {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: #232323;
+}
+
+.menu {
+    justify-content: end;
+}
+
+
+/* 
+********  MAIN  *******
+*/
+
+main {
+    width: 100%;
+    margin: 5rem 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    overflow: hidden;
+    overflow-x: hidden;
+    /* Para esconder parte da imagem que exceder a altura da seção */
+}
+
+.carrosel-sessao,
+.carousel,
+.slide,
+.carousel-item {
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    max-height: 65vh;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.carrosel-sessao {
+    border-bottom: #232323 solid 2px;
+}
+
+
+
+.caixa-descricao {
+    width: 350px;
+}
+
+
+.descricoes-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.descricao {
+    position: relative;
+}
+
+/* .active {
+    background-color: yellow;
+    color: #232323;
+    border-radius: 3px;
+} */
+
+.nav-item .active {
+    background-color: yellow;
+    color: #232323;
+    border-radius: 3px;
+}
+
+/* 
+
+.activee {
+    background-color: yellow;
+    color: #232323;
+    border-radius: 3px;
+} */
+
+/* CONTAINER - BUSCA PASSAGEM */
+.buscaPassagem-sessao {
+    padding: 3rem 0 4rem 0;
+}
+
+
+
+
+.inputs-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+
+}
+
+
+.input-group-text {
+    background-color: rgb(255, 255, 255);
+    color: #232323;
+    padding: .8rem;
+}
+
+.input-group,
+.input-group-text,
+.form-control {
+    border-color: #232323;
+}
+
+.form-control:focus-visible {
+    background-color: yellow;
+    border-color: #232323;
+    box-shadow: none;
+}
+
+
+.botao-estilo {
+    background-color: yellow;
+    border-radius: 1rem;
+    width: 200px;
+    border: none;
+    align-items: center;
+}
+
+.botao-buscar:hover {
+    background-color: rgb(243, 220, 16)
+}
+
+/* CONTAINER DESCRICAO */
+
+.descricao-sessao,
+.container-card {
+    margin: 0 auto;
+    max-width: 88%;
+}
+
+.container-sobre {
+    margin: 3rem 0 2rem 0;
+
+}
+
+.container-sobre h2 {
+    color: yellow;
+}
+
+.container-sobre h4 {
+    margin-top: 1rem;
+}
+
+.container-especialidades {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3rem;
+
+}
+
+.item-especialidade {
+    display: flex;
+    width: 340px;
+    text-align: left;
+    justify-content: space-between;
+    gap: .5rem;
+
+}
+
+.item-especialidade i {
+    width: 65px;
+    font-size: 2.3rem;
+    align-self: center;
+    color: yellow;
+    padding: 0 .3rem 0 .3rem;
+}
+
+/* PREVIA PROMOCOES */
+.previa-containers-sessao {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.previa-containers-sessao h3 {
+    color: #232323;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.container-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 2rem;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.card {
+    border: none;
+    text-align: center;
+}
+
+.card-img-top {
+    height: 20rem;
+    border: 1px solid #232323;
+}
+
+/* 
+        FOOTER 
+*/
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #232323;
+    bottom: 0;
+}
+
+.entrar_em_contato {
+    margin: 0 auto;
+    max-width: 88%;
+}
+
+footer h6 {
+    padding: 2rem;
+}
+
+strong {
+    color: yellow;
+}
+
+
+/* 
+MEDIA QUERY */
+
+@media (max-width: 900px) {
+    * {
+        text-align: center;
+    }
+
+    .container-especialidades {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .item-especialidade {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .inputs-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    .botao-buscar {
+        padding: 1rem;
+    }
+
+    .container-card {
+        justify-content: center;
+    }
+
+
+
+
+}

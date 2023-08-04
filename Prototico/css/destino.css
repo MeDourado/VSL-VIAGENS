@@ -1,0 +1,39 @@
+.banner {
+    position: relative;
+    width: 100%;
+
+}
+
+.banner div {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    align-content: center;
+    gap: .7rem;
+}
+
+.banner input {
+    width: 400px;
+    padding: .5rem;
+}
+
+.banner input:hover {
+    border: #232323 solid 2px;
+}
+
+.banner input:focus {
+    border: #232323 solid 2px;
+    background-color: yellow;
+    outline: none;
+    color: white;
+}
+
+.banner i {
+    font-size: 2.4rem;
+    align-self: flex-end;
+
+
+}
