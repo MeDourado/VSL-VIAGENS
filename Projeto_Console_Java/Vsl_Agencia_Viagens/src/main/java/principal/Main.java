@@ -1,7 +1,12 @@
 package principal;
 
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import principal.DAO.*;
 
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -172,7 +177,7 @@ public class Main {
                         // clienteDAO.consultarCliente();
                         break;
                     case 4:
-                        System.out.println("Saindo da area de passagem...");
+                        System.out.println("Saindo da area de passagem..");
                         return; // Encerra o loop e a função
                     default:
                         System.out.println("Opção inválida. Tente novamente.");
@@ -191,8 +196,9 @@ public class Main {
 
         while (true) {
             System.out.println("Area - Voos!");
-            System.out.println("1. Consultar Voo");
-            System.out.println("2. Sair");
+            System.out.println("1. Cadastrar Voo");
+            System.out.println("2. Consultar Voo");
+            System.out.println("3. Sair");
 
             try {
                 System.out.print("Escolha uma opção: ");
@@ -200,9 +206,50 @@ public class Main {
 
                 switch (escolha) {
                     case 1:
-                        System.out.println("Opção: Consultar Voo");
+                        System.out.println("Opção: Cadastrar Voo");
+                        Voos voos = new Voos();
+                        System.out.print("Piloto:");
+                        scanner.nextLine();
+                        voos.setPiloto(scanner.nextLine());
+                        System.out.print("Data do Voo de ida (dd/mm/yyyy): ");
+                        String data_ida = scanner.next();
+                        System.out.print("Data do Voo de volta (dd/mm/yyyy): ");
+                        String data_volta = scanner.next();
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+                        try {
+                            Date data_ida_voo = sdf.parse(data_ida);
+                            Date data_volta_voo = sdf.parse(data_volta);
+                            voos.setData_ida(data_ida_voo);
+                            voos.setData_volta(data_volta_voo);
+                            voosDAO.adicionarVoos(voos);
+                            System.out.println("Voo cadastrado com sucesso.");
+                        } catch (ParseException e) {
+                            System.out.println("Formato de data inválido. Use dd/mm/yyyy.");
+                        }
                         break;
+
+
                     case 2:
+                        System.out.println("Opção: Consultar Voo");
+                        System.out.print("Informe o ID do voo a ser consultado: ");
+                        int idVoo = scanner.nextInt();
+                        Voos vooConsultado = voosDAO.consultarVoos(idVoo);
+
+                        if (vooConsultado != null) {
+                            System.out.println("Detalhes do voo:");
+                            System.out.println("ID: " + idVoo);
+                            System.out.println("Piloto: " + vooConsultado.getPiloto());
+                            System.out.println("Data de Ida: " + vooConsultado.getData_ida());
+                            System.out.println("Data de Volta: " + vooConsultado.getData_volta());
+                        } else {
+                            System.out.println("Voo não encontrado.");
+                        }
+
+                        break;
+
+                    case 3:
+                        voosDAO.fecharConexao();
                         System.out.println("Saindo da area de voo...");
                         return;
                     default:
