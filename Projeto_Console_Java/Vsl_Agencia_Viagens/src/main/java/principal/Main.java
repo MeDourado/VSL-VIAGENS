@@ -83,15 +83,50 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("Opção: Atualizar Cliente");
-                        // clienteDAO.atualizarCliente();
+                        System.out.print("ID do Cliente para atualização: ");
+                        int clienteIdAtualizar = scanner.nextInt();
+                        Cliente clienteAtualizar = clienteDAO.consultarCliente(clienteIdAtualizar);
+                        if(clienteAtualizar != null) {
+                            System.out.print("Novo Nome do Cliente: ");
+                            scanner.nextLine();
+                            clienteAtualizar.setNome(scanner.nextLine());
+                            System.out.print("Novo Email do Cliente: ");
+                            clienteAtualizar.setEmail(scanner.nextLine());
+                            System.out.print("Nova Senha do Cliente: ");
+                            clienteAtualizar.setSenha(scanner.nextLine());
+                            System.out.print("Novo Telefone do Cliente: ");
+                            clienteAtualizar.setTelefone(scanner.nextLine());
+                            System.out.print("Novo Cpf do Cliente: ");
+                            clienteAtualizar.setCpf(scanner.nextLine());
+                            clienteDAO.atualizarCliente(clienteAtualizar);
+                            System.out.println("Cliente atualizado com sucesso");
+                        }else {
+                            System.out.println("Cliente não encontrado.");
+                        }
                         break;
                     case 3:
                         System.out.println("Opção: Deletar Cliente");
-                        // clienteDAO.deletarCliente();
+                        System.out.print("ID do Cliente para Deletar: ");
+                        int idExcluir = scanner.nextInt();
+                        Cliente clienteExcluir = clienteDAO.consultarCliente(idExcluir);
+                        if(clienteExcluir != null) {
+                            clienteDAO.excluirCliente(idExcluir);
+                            System.out.println("Cliente excluido com sucesso");
+                        } else {
+                            System.out.println("Cliente não encontrado.");
+                        }
+
                         break;
                     case 4:
                         System.out.println("Opção: Consultar Cliente");
-                        // clienteDAO.consultarCliente();
+                        System.out.print("ID do Cliente para consulta: ");
+                        int id = scanner.nextInt();
+                        Cliente clienteBuscar = clienteDAO.consultarCliente(id);
+                        if(clienteBuscar != null) {
+                            System.out.println("Id: " + clienteBuscar.getClienteID() + " , Nome: " + clienteBuscar.getNome() + " , Email: " + clienteBuscar.getEmail() + " , Cpf: " + clienteBuscar.getCpf());
+                        } else {
+                            System.out.println("Cliente não encontrado.");
+                        }
                         break;
                     case 5:
                         clienteDAO.fecharConexao();

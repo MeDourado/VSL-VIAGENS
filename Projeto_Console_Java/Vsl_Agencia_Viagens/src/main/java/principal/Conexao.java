@@ -10,7 +10,7 @@ public class Conexao {
     private static final String SENHA = "123456";
 
     public static Connection conectar() throws SQLException {
-        Connection conexao = null;
+        Connection conexao;
         try {
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
         } catch (SQLException e) {
