@@ -48,12 +48,4 @@ public class Voos {
         this.data_volta = data_volta;
     }
 
-
-
-
-
 }
-    //vooID serial primary key,
-    //piloto varchar(100) not null,
-       // data_ida timestamp not null,
-       // data_volta timestamp not null

@@ -33,14 +33,15 @@ public class VoosDAO {
         }
 
     }
-    public Voos consultarVoos(int id) {
+    public Voos consultarVoos(int vooID) {
         Voos voos = null;
         String sql = "SELECT * FROM voos WHERE vooID = ?";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setInt(1, vooID);
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
                 voos = new Voos();
+                voos.setVooID(resultado.getInt("vooID"));
                 voos.setPiloto(resultado.getString("piloto"));
                 voos.setData_ida(resultado.getDate("data_ida"));
                 voos.setData_volta(resultado.getDate("data_volta"));

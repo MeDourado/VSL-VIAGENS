@@ -151,14 +151,15 @@ public class Main {
 
     public static void menuPassagem() {
         PassagensDAO passagensDAO = new PassagensDAO();
+        DestinoDAO destinoDAO = new DestinoDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
+        VoosDAO voosDAO = new VoosDAO();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("Area - Passagens!");
             System.out.println("1. Comprar Passagem");
-            System.out.println("2. Cancelar Passagem");
-            System.out.println("3. Consultar Passagem");
-            System.out.println("4. Sair");
+            System.out.println("2. Sair");
 
             try {
                 System.out.print("Escolha uma opção: ");
@@ -167,17 +168,43 @@ public class Main {
                 switch (escolha) {
                     case 1:
                         System.out.println("Opção: Comprar Passagem");
-                        // clienteDAO.adicionarCliente();
+                        Passagens passagens = new Passagens();
+                        System.out.println("ID do cliente: ");
+                        int clienteID = scanner.nextInt();
+                        Cliente clienteConsulta = clienteDAO.consultarCliente(clienteID);
+                        System.out.println("Local Partida: ");
+                        scanner.nextLine();
+                        String local_partida = scanner.nextLine();
+                        System.out.println("ID do Destino: ");
+                        int destinoID = scanner.nextInt();
+                        Destino destinoConsulta = destinoDAO.buscarDestino(destinoID);
+                        scanner.nextLine();
+                        System.out.println("ID do Voo: ");
+                        int vooId = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println(vooId);
+                        Voos voosConsulta = voosDAO.consultarVoos(vooId);
+                        System.out.println("Valor: ");
+                        int valor = scanner.nextInt();
+                        if(clienteConsulta != null && voosConsulta !=  null && destinoConsulta != null) {
+                            passagens.setCliente(clienteConsulta);
+                            passagens.setLocal_partida(local_partida);
+                            passagens.setDestino(destinoConsulta);
+                            passagens.setVoos(voosConsulta);
+                            passagens.setValor(valor);
+                            passagensDAO.comprarPassagem(passagens);
+                            System.out.println("Passagem comprada com sucesso!");
+                        } else {
+                            System.out.println("Cliente ou Destino ou Voo não encontrado.");
+                        }
+
+
                         break;
                     case 2:
-                        System.out.println("Opção: Cancelar Passagem");
-                        // clienteDAO.atualizarCliente();
-                        break;
-                    case 3:
-                        System.out.println("Opção: Consultar Passagem");
-                        // clienteDAO.consultarCliente();
-                        break;
-                    case 4:
+                        passagensDAO.fecharConexao();
+                        clienteDAO.fecharConexao();
+                        destinoDAO.fecharConexao();
+                        voosDAO.fecharConexao();
                         System.out.println("Saindo da area de passagem..");
                         return; // Encerra o loop e a função
                     default:
@@ -266,6 +293,8 @@ public class Main {
 
     public static void menuFaleConosco() {
         FaleConoscoDAO faleConoscoDAO = new FaleConoscoDAO();
+        PassagensDAO passagensDAO = new PassagensDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Area - Fale Conosco!");
@@ -279,8 +308,30 @@ public class Main {
                 switch (escolha) {
                     case 1:
                         System.out.println("Enviar Mensagem");
+                        System.out.println("ID do cliente: ");
+                        int clienteID = scanner.nextInt();
+                        Cliente clienteConsulta = clienteDAO.consultarCliente(clienteID);
+                        System.out.println("ID da passagem: ");
+                        int passagemID = scanner.nextInt();
+                        Passagens passagensConsulta = passagensDAO.buscarPassagem(passagemID);
+                        scanner.nextLine();
+                        System.out.println("Escreva sua mensagem: ");
+                        String mensagem = scanner.nextLine();
+                        if(clienteConsulta != null & passagensConsulta != null) {
+                            FaleConosco faleConosco = new FaleConosco();
+                            faleConosco.setCliente(clienteConsulta);
+                            faleConosco.setPassagens(passagensConsulta);
+                            faleConosco.setMensagem(mensagem);
+                            faleConoscoDAO.enviarMensagem(faleConosco);
+                            System.out.println("Mensagem Enviada com Sucesso");
+                        } else {
+                            System.out.println("Cliente ou Passagem não encontrado.");
+                        }
                         break;
                     case 2:
+                        faleConoscoDAO.fecharConexao();
+                        clienteDAO.fecharConexao();
+                        passagensDAO.fecharConexao();
                         System.out.println("Saindo da area de fale conosco...");
                         return;
                     default:

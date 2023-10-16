@@ -48,6 +48,24 @@ public class DestinoDAO {
         }
         return Destinos;
     }
+
+    public Destino buscarDestino(int destinoID) {
+        String sql = "SELECT * FROM destinos WHERE destinoID = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setInt(1, destinoID);
+            ResultSet resultado = stmt.executeQuery();
+            if (resultado.next()) {
+                Destino destino = new Destino();
+                destino.setDestinoID(resultado.getInt("destinoID"));
+                destino.setNomeDestino(resultado.getString("nomeDestino"));
+                return destino;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void fecharConexao() {
         try {
             if (conexao != null && !conexao.isClosed()) {
