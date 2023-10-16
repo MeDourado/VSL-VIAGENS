@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -301,7 +302,8 @@ public class Main {
         while (true) {
             System.out.println("Area - Fale Conosco!");
             System.out.println("1. Adicionar Destino");
-            System.out.println("2. Sair");
+            System.out.println("2. Lista de Destinos");
+            System.out.println("3. Sair");
 
             try {
                 System.out.print("Escolha uma opção: ");
@@ -309,9 +311,23 @@ public class Main {
 
                 switch (escolha) {
                     case 1:
-                        System.out.println("Adicionar Destino");
+                        System.out.println("Opção - Adicionar Destino");
+                        Destino destino = new Destino();
+                        scanner.nextLine();
+                        System.out.print("Nome do Destino:");
+                        destino.setNomeDestino(scanner.nextLine());
+                        destinoDAO.adicionarDestino(destino);
+                        System.out.println("Destino cadastrado com sucesso");
                         break;
                     case 2:
+                        List<Destino> destinos = destinoDAO.listarDestinos();
+                        System.out.println("Lista de Destinos");
+                        for(Destino d : destinos) {
+                            System.out.println("Destino: " + d.getNomeDestino());
+                        }
+                        break;
+                    case 3:
+                        destinoDAO.fecharConexao();
                         System.out.println("Saindo da area de destino...");
                         return;
                     default:
